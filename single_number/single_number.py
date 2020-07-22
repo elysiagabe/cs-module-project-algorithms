@@ -16,6 +16,8 @@ Notes:
 '''
 def single_number(arr):
     # Your code here
+    ''' First Solution: 
+
     # Create an empty array to append duplicates to
     dups = []
     # iterate thru array looking for dups
@@ -30,6 +32,23 @@ def single_number(arr):
     for x in arr: 
         if x not in dups: 
             return x
+    '''
+
+    '''Second Solution: '''
+    # if arr is empty or has 1 value, not relevant
+    if len(arr) < 2: 
+        return 
+    # while there are more than 1 items in arr, 
+    while len(arr) > 1: 
+        # check to see if the first element is elsewhere in the array
+        if arr[0] in arr[1:]:
+            # if it is, remove all instances of that value
+            arr = [x for x in arr if x != arr[0]]
+        # if it's not, that means the single number has been found
+        else: 
+            # return that value
+            return arr[0]
+    return arr
 
 
 if __name__ == '__main__':
